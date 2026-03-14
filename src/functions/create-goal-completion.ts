@@ -3,13 +3,13 @@ import { db } from '../db'
 import { goalCompletions, goals } from '../db/schema'
 import dayjs from 'dayjs'
 
-interface CreateGoalComplitionRequest {
+interface CreateGoalCompletionRequest {
   goalId: string
 }
 
-export async function createGoalComplition({
+export async function createGoalCompletion({
   goalId,
-}: CreateGoalComplitionRequest) {
+}: CreateGoalCompletionRequest) {
   const firstDayofWeek = dayjs().startOf('week').toDate()
   const lastDayOfWeek = dayjs().endOf('week').toDate()
 
@@ -50,9 +50,9 @@ export async function createGoalComplition({
   }
 
   const insertResult = await db.insert(goalCompletions).values({ goalId }).returning()
-  const goalComplition = insertResult[0]
+  const goalCompletion = insertResult[0]
 
   return {
-    goalComplition,
+    goalCompletion,
   }
 }
