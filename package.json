@@ -1,0 +1,30 @@
+{
+  "name": "nlw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch --env-file .env  src/http/server.ts",
+    "seed": "tsx --env-file .env ./src/db/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@paralleldrive/cuid2": "^3.3.0",
+    "@types/node": "^25.5.0",
+    "dayjs": "^1.11.20",
+    "drizzle-kit": "^0.31.10",
+    "drizzle-orm": "^0.45.1",
+    "fastify": "^5.8.2",
+    "fastify-type-provider-zod": "^6.1.0",
+    "postgres": "^3.4.8",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.7"
+  }
+}
