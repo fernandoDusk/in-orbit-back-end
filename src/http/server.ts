@@ -24,10 +24,17 @@ app.register(createPendingGoalRoute)
 app.register(createCompletionRoute)
 app.register(getWeekSummaryRoute)
 
-app
-  .listen({
-    port: 3333,
-  })
-  .then(() => {
-    console.log('HTTp Server is Running')
-  })
+if (process.env.NODE_ENV !== 'production') {
+  app
+    .listen({
+      port: 3333,
+    })
+    .then(() => {
+      console.log('HTTP Server is Running locally!')
+    })
+}
+
+export default async (req: any, res: any) => {
+  await app.ready();
+  app.server.emit('request', req, res);
+}
